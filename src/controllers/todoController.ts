@@ -52,6 +52,7 @@ export const updateTodo: RequestHandler<{ id: string }> =async (req, res, next) 
     try {
         
         const { id } = req.params
+
         let todos = await Todo.findByIdAndUpdate(id, req.body, { new: true })
         return res.status(200).json({ message: 'Todo updated successfully', data: todos });
     } catch (error:any) {
